@@ -14,6 +14,11 @@
 LOCAL_PATH := $(call my-dir)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
+PRODUCT_PACKAGE_OVERLAYS += vendor/addons/overlays/common
+ifeq ($(WITH_GMS),true)
+    PRODUCT_PACKAGE_OVERLAYS += vendor/addons/overlays/gms
+endif
+
 # Clocks
 PRODUCT_PACKAGES += \
     SystemUIClocks-BigNum \
